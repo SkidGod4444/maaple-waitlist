@@ -14,19 +14,65 @@ const placeholders = [
   "connect.saidev@gmail.com",
 ];
 
+async function sendMail(email: string) {
+  // Send email to the user
+  await fetch("/api/mapple/mail", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email }),
+  });
+}
 export default function Hero() {
+  const storage =
+    typeof window !== "undefined" ? localStorage.getItem("wleml") : null;
   const [isEmail, setIsEmail] = useState(false);
   const [isEmailValid, setIsEmailValid] = useState(true);
+  const [mail, setMail] = useState("");
+  const [warnName, setWarnName] = useState(
+    "Please enter a valid email to continue."
+  );
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const isValidEmail = emailRegex.test(e.target.value);
     setIsEmailValid(isValidEmail);
+    setMail(e.target.value);
   };
-  
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("submitted");
+    try {
+      // Make API request here
+      if (storage !== "done") {
+        const response = await fetch("/api/mapple/waitlist", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email: mail }),
+        });
+        if (response.ok) {
+          console.log("API request successful");
+          localStorage.setItem("wleml", mail);
+          setIsEmail(true);
+          await sendMail(mail);
+        } else {
+          console.log("ERROR:", response);
+          // Handle error response
+          setIsEmail(false);
+        }
+      } else {
+        setIsEmail(true);
+        setWarnName("You have already joined the waitlist.");
+        setIsEmailValid(false);
+      }
+    } catch (error) {
+      console.log("API request error:", error);
+      // Handle error
+      setIsEmail(false);
+    }
   };
 
   return (
@@ -38,8 +84,7 @@ export default function Hero() {
           </h1>
           <p className="text-start text-muted-foreground whitespace-normal md:max-w-[460px]">
             Get ready to experience the future of social networking with Mapple.
-            Connect, share, and grow with a community that&apos;s redefining the
-            way we interact online.
+            Makking your school life more fun and engaging.
           </p>
           <div className="mt-10">
             <PlaceholdersAndVanishInput
@@ -50,18 +95,12 @@ export default function Hero() {
             />
             {!isEmailValid && (
               <span className="flex mt-2 flex-col-1 text-red-600">
-                <TriangleAlert className="h-5 w-5 mr-2" /> Please enter a valid
-                email to continue.
+                <TriangleAlert className="h-5 w-5 mr-2" /> {warnName}
               </span>
             )}
           </div>
         </div>
-        <Image
-          src="/images/hero.png"
-          width={500}
-          height={500}
-          alt="hero"
-        />
+        <Image src="/images/hero.png" width={500} height={500} alt="hero" />
       </div>
     </div>
   );

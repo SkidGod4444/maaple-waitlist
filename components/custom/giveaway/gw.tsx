@@ -11,7 +11,7 @@ export default function Giveaway() {
             Is this paid? Do i need a credit card?
           </p>
         <p className="text-start text-muted-foreground whitespace-normal md:max-w-[460px]">
-            Naah! This is completely free. You don&apos;t need to pay anything to join the program. Just join the waitlist and click on the free badge button on the top right corner.
+            Naah! This is completely free. You don&apos;t need to pay anything to join the program. Just join the waitlist and click on the <strong><u>CLAIM BADGE</u></strong> button on the top right corner.
           </p>
         </div>
       </div>
