@@ -4,6 +4,7 @@ import { Logo } from "../logo/logo";
 import { Button } from "../../ui/button";
 import { PartyPopper } from "lucide-react";
 import { useState } from "react";
+import { CoolMode } from "@/components/ui/cool-effect";
 
 export function BasicHeader() {
   const storage =
@@ -21,7 +22,7 @@ export function BasicHeader() {
         setName("Claimed");
       }
     } else {
-      if (storage === "done"){
+      if (storage === "done") {
         setName("Already Claimed");
       }
       console.log("Already claimed");
@@ -34,9 +35,16 @@ export function BasicHeader() {
         <Link href="/">
           <Logo />
         </Link>
-        <Button variant="default" onClick={handleClaimBadge}>
-          <PartyPopper className="w-5 h-5 mr-2" /> {name}
-        </Button>
+        <CoolMode
+          options={{
+            particle: "/images/logo.png",
+            particleCount: 100,
+          }}
+        >
+          <Button variant="default" onClick={handleClaimBadge}>
+            <PartyPopper className="w-5 h-5 mr-2" /> {name}
+          </Button>
+        </CoolMode>
       </div>
     </header>
   );
