@@ -7,7 +7,7 @@ export function BasicLayout({
 }: ComponentProps<"div">) {
   return (
     <div className="flex min-h-[100vh]">
-      <BasicHeader className="border-2 rounded-full" />
+      <BasicHeader/>
       <main>{children}</main>
       <BasicFooter/>
     </div>
