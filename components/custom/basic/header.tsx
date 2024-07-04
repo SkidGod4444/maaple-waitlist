@@ -32,7 +32,8 @@ export function BasicHeader() {
         setName("Claim Badge");
         toast({
           title: "You are not eligible!",
-          description: "Join the waitlist to claim the badge!",
+          description:
+            "Join the waitlist to claim the badge! 🎉 (refresh the page)",
         });
       }
       if (storage === "done") {

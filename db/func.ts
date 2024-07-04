@@ -4,17 +4,29 @@ import { db } from "./init";
 const genStrng = generateRandomString();
 
 async function addTOwl(email: string) {
-  set(ref(db, "waitlist/" + genStrng), {
-    email: email,
-  });
-  return true;
+  try {
+    const waitlistRef = ref(db, "waitlist/" + genStrng);
+    await set(waitlistRef, {
+      email: email,
+    });
+    return true;
+  } catch (error: any) {
+    console.error("Error adding to waitlist:", error);
+    return false;
+  }
 }
 
 async function addTOesp(email: string) {
-  set(ref(db, "early-supporters/" + genStrng), {
-    email: email,
-  });
-  return true;
+  try {
+    const espRef = ref(db, "early-supporter/" + genStrng);
+    await set(espRef, {
+      email: email,
+    });
+    return true;
+  } catch (error: any) {
+    console.error("Error adding to waitlist:", error);
+    return false;
+  }
 }
 
 async function getWLusers() {
@@ -48,7 +60,6 @@ async function getESPusers() {
       console.error(error);
     });
 }
-
 
 function generateRandomString(): string {
   const characters =

@@ -10,7 +10,7 @@ export default async function Bio() {
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col ">
           <SparklesText text="Early Supporters?" className="text-5xl"/>
           <p className="whitespace-pre-wrap mt-2 text-4xl font-medium tracking-tighter text-black dark:text-white">
-            <NumberTicker value={99} />+ and counting on ...
+            <NumberTicker value={129} />+ and counting on ...
           </p>
           <p className="text-start text-muted-foreground whitespace-normal md:max-w-[460px]">
             Yeaah we are growing and we are growing fast. We are making a community of early supporters who are excited to see the future of Mapple. 

@@ -9,6 +9,8 @@ export async function POST(req: NextRequest) {
     const add = await addTOesp(email);
     if (add) {
       return new Response("Success", { status: 200 });
+    } else {
+      return new Response("Error Occured!", { status: 500 });
     }
   } catch (error: any) {
     return new Response(error.message, { status: 500 });

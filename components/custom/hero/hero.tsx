@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { PlaceholdersAndVanishInput } from "../../ui/vanish-input";
 import { TriangleAlert } from "lucide-react";
 import Timer from "../timer/timer";
+import { useToast } from "@/components/ui/use-toast";
 
 const placeholders = [
   "Enter your email to join the whitelist.",
@@ -26,6 +27,7 @@ async function sendMail(email: string) {
   });
 }
 export default function Hero() {
+  const { toast } = useToast();
   const storage =
     typeof window !== "undefined" ? localStorage.getItem("wleml") : null;
   const [isEmail, setIsEmail] = useState(false);
@@ -59,6 +61,10 @@ export default function Hero() {
           localStorage.setItem("wleml", mail);
           setIsEmail(true);
           await sendMail(mail);
+          toast({
+            title: "Success!👻",
+            description: "You have successfully joined the waitlist! 🎉",
+          });
         } else {
           console.log("ERROR:", response);
           // Handle error response
