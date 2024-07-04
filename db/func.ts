@@ -7,12 +7,14 @@ async function addTOwl(email: string) {
   set(ref(db, "waitlist/" + genStrng), {
     email: email,
   });
+  return true;
 }
 
 async function addTOesp(email: string) {
   set(ref(db, "early-supporters/" + genStrng), {
     email: email,
   });
+  return true;
 }
 
 async function getWLusers() {

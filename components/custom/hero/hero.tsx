@@ -3,6 +3,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { PlaceholdersAndVanishInput } from "../../ui/vanish-input";
 import { TriangleAlert } from "lucide-react";
+import Timer from "../timer/timer";
 
 const placeholders = [
   "Enter your email to join the whitelist.",
@@ -98,6 +99,7 @@ export default function Hero() {
                 <TriangleAlert className="h-5 w-5 mr-2" /> {warnName}
               </span>
             )}
+            <Timer/>
           </div>
         </div>
         <Image src="/images/hero.png" width={500} height={500} alt="hero" />

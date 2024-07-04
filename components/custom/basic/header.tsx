@@ -5,8 +5,10 @@ import { Button } from "../../ui/button";
 import { PartyPopper } from "lucide-react";
 import { useState } from "react";
 import { CoolMode } from "@/components/ui/cool-effect";
+import { useToast } from "@/components/ui/use-toast";
 
 export function BasicHeader() {
+  const { toast } = useToast();
   const storage =
     typeof window !== "undefined" ? localStorage.getItem("wleml") : null;
   const [name, setName] = useState("Claim Badge");
@@ -20,10 +22,25 @@ export function BasicHeader() {
       if (req.status == 200) {
         localStorage.setItem("wleml", "done");
         setName("Claimed");
+        toast({
+          title: "Congratulations!🎉",
+          description: `Successfully claimed the badge! We will send ${storage} an email with the badge soon.`,
+        });
       }
     } else {
+      if (storage == null && storage !== "done") {
+        setName("Claim Badge");
+        toast({
+          title: "You are not eligible!",
+          description: "Join the waitlist to claim the badge!",
+        });
+      }
       if (storage === "done") {
         setName("Already Claimed");
+        toast({
+          title: "Already claimed!",
+          description: "You have already claimed the badge!",
+        });
       }
       console.log("Already claimed");
     }
