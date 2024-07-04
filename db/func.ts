@@ -1,11 +1,10 @@
 import { child, get, ref, set } from "firebase/database";
 import { db } from "./init";
 
-const genStrng = generateRandomString();
 
 async function addTOwl(email: string) {
   try {
-    const waitlistRef = ref(db, "waitlist/" + genStrng);
+    const waitlistRef = ref(db, "waitlist/" + generateRandomString());
     await set(waitlistRef, {
       email: email,
     });
@@ -18,7 +17,7 @@ async function addTOwl(email: string) {
 
 async function addTOesp(email: string) {
   try {
-    const espRef = ref(db, "early-supporter/" + genStrng);
+    const espRef = ref(db, "early-supporter/" + generateRandomString());
     await set(espRef, {
       email: email,
     });
