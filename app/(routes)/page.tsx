@@ -1,4 +1,5 @@
-import Bio from "@/components/custom/bio/bio";
+import About from "@/components/custom/about/about";
+import Esp from "@/components/custom/esp/esp";
 import Giveaway from "@/components/custom/giveaway/gw";
 import Hero from "@/components/custom/hero/hero";
 import { BasicLayout } from "@/layouts/basic/basic.layout";
@@ -10,7 +11,8 @@ const HeroPage = () => {
       <div className="max-w-7xl w-full">
         <BasicLayout>
           <Hero/>
-          <Bio/>
+          <About/>
+          <Esp/>
           <Giveaway/>
         </BasicLayout>
       </div>

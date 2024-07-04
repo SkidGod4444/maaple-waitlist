@@ -1,6 +1,6 @@
 import { ComponentProps } from "react";
-import { BasicHeader } from "@/components/custom/basic/header";
-import { BasicFooter } from "@/components/custom/basic/footer";
+import { BasicHeader } from "@/components/basic/header";
+import { BasicFooter } from "@/components/basic/footer";
 
 export function BasicLayout({
   children

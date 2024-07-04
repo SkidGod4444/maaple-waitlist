@@ -1,6 +1,6 @@
 "use client";
 import { useMemo } from "react";
-import { Button } from "../../ui/button";
+import { Button } from "../ui/button";
 import { Instagram } from "lucide-react";
 import {
   AlertDialog,
@@ -12,7 +12,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "../../ui/alert-dialog";
+} from "../ui/alert-dialog";
 
 function handleOnClick() {
   console.log("You clicked the button!");

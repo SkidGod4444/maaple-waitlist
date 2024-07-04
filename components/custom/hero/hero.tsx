@@ -86,12 +86,12 @@ export default function Hero() {
     <div className="mt-20 mb-20">
       <div className="flex flex-col md:flex-row justify-center items-start md:items-start relative gap-y-10 gap-x-10 md:left-20 md:right-20 z-10">
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col ">
-          <h1 className="text-5xl md:mt-20 font-bold text-start">
+          <h1 className="text-5xl mt-20 font-bold text-start">
             We are on the way!
           </h1>
-          <p className="text-start text-muted-foreground whitespace-normal md:max-w-[460px]">
+          <p className="text-start mt-2 text-muted-foreground whitespace-normal md:max-w-[460px]">
             Get ready to experience the future of social networking with Mapple.
-            Makking your school life more fun and engaging.
+            Making your school life more fun and engaging. One platform for all your needs.
           </p>
           <div className="mt-10">
             <PlaceholdersAndVanishInput

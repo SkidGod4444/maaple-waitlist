@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
-import { Logo } from "../logo/logo";
-import { Button } from "../../ui/button";
+import { Logo } from "../custom/logo/logo";
+import { Button } from "../ui/button";
 import { PartyPopper } from "lucide-react";
 import { useState } from "react";
 import { CoolMode } from "@/components/ui/cool-effect";

@@ -52,11 +52,11 @@ function ShowAlert() {
 }
 
 export default function Timer() {
-  const today = new Date();
+  const startingDay = new Date('2024-07-03T00:00:00.000Z');
   const futureDate = new Date(
-    today.getFullYear(),
-    today.getMonth(),
-    today.getDate() + 15
+    startingDay.getFullYear(),
+    startingDay.getMonth(),
+    startingDay.getDate() + 15
   );
   return (
     <div className="mt-10">
