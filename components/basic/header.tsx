@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { Logo } from "../custom/logo/logo";
 import { Button } from "../ui/button";
-import { PartyPopper } from "lucide-react";
+import { PartyPopper, RocketIcon } from "lucide-react";
 import { useState } from "react";
 import { CoolMode } from "@/components/ui/cool-effect";
 import { useToast } from "@/components/ui/use-toast";
@@ -59,8 +59,9 @@ export function BasicHeader() {
             particleCount: 100,
           }}
         >
-          <Button variant="default" onClick={handleClaimBadge}>
-            <PartyPopper className="w-5 h-5 mr-2" /> {name}
+          <Button variant="default" onClick={handleClaimBadge} disabled>
+            <RocketIcon className="h-5 w-5 mr-2" /> Times Up!
+             {/* {name} */}
           </Button>
         </CoolMode>
       </div>
